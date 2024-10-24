@@ -1,0 +1,54 @@
+body{
+    width: 100%;
+   background-image: url('../images/lg.jpg');
+}
+.main{
+    width: 350px;
+    height: 410px;
+    background-color: rgb(58, 10, 10);
+    color: white;
+    margin-left: 650px;
+    margin-top: 100px;
+    border-radius: 20px;
+    box-shadow: 0 2px 1px white;
+}
+.form{
+    width: 60px;
+    margin-left: 40px;
+   
+}
+.main input{
+    outline: 0;
+    border: 0;
+    height: 30px;
+    width: 250px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+.pass{
+    margin-left: 20px;
+    margin-top: 60px;
+}
+.pass a{
+    text-decoration: none;
+    color: rgb(92, 92, 145);
+
+}
+.btn1{
+    border: 0;
+    color: black;
+    background-color: seagreen;
+    margin-left: 80px;
+    width: 80px;
+    height: 40px;
+    margin-top: 100px;
+}
+.btn2{
+    border: 0;
+    color: black;
+    background-color: grey;
+    margin-left: 40px;
+    width: 80px;
+    height: 40px;
+    margin-top: 100px;
+}
