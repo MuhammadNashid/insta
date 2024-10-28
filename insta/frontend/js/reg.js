@@ -1,30 +1,32 @@
+let pic
 document.getElementById('form').addEventListener('submit',async function (e) {
     e.preventDefault();
 
-    caption=document.getElementById('caption').value
-    description=document.getElementById('description').value
+    profile=pic
+    name=document.getElementById('username').value
+    email=document.getElementById('email').value
+    phone=document.getElementById('phone').value
+    pass=document.getElementById('pass').value
+    cpass=document.getElementById('cpass').value
     
-    
-    
-    console.log(caption,description,pic)
+    console.log(name,email,phone,pass,cpass)
 
-    const res=await fetch('http://localhost:3000/api/add',{
+    const res=await fetch('http://localhost:3000/api/adduser',{
         method:"POST",
         headers:{"content-Type":'application/json'},
-        body:JSON.stringify({pic,caption,description})
+        body:JSON.stringify({profile,name,email,phone,pass,cpass})
     })
     console.log(res);
     
     const data=await res.json()
     if(res.status==201){
         alert(data.msg)
-        window.location.href="../index.html"
+        window.location.href="./login.html"
     }
     else{
         alert(data.error)
     }
  })
- let pic
 
  async function picture() {
     const file=document.getElementById("profile").files[0]

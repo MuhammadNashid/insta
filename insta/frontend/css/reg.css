@@ -9,22 +9,25 @@
 }
 
 .container {
-  height: 100vh;
+  height: 900px;
   width: 100%;
   align-items: center;
   display: flex;
   justify-content: center;
   background-image: radial-gradient(
     circle farthest-corner at 10% 20%,
-    rgba(253, 101, 133, 1) 0%,
-    rgba(255, 211, 165, 1) 90%
+    rgb(238, 227, 230) 0%,
+    rgb(27, 26, 26) 90%
   );
 }
-
+h1{
+  color: rgb(66, 5, 5);
+  text-transform: uppercase;
+}
 .card {
   border-radius: 10px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
-  width: 400px;
+  width: 600px;
   /* height: 480px; */
   background-color: #ffffff;
   padding: 10px 30px;
@@ -51,14 +54,15 @@
 }
 
 .form button {
-  background-color: #4796ff;
+  background-color: #0e3870;
   color: #ffffff;
   font-size: 16px;
   outline: none;
   border-radius: 5px;
   border: none;
   padding: 8px 15px;
-  width: 100%;
+  width: 100px;
+  margin-left: 190px;
 }
 
 .card_terms {

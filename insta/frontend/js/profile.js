@@ -7,13 +7,13 @@ async function getUserDetails() {
     const res=await fetch(`http://localhost:3000/api/getUserDetails/${id}`)
     const data=await res.json();
     console.log(data);
-    document.getElementById('main-class-1').innerHTML=`
+    document.getElementById('main').innerHTML=`
     <div><img src="${data.profile}" alt="" height="50" width="50"></div>
             <div>Username: ${data.name}</div>
             <div>Email: ${data.email}</div>
             <div>Phone: ${data.phone}</div>
-            <button onclick="logoutacc()">Logout account</button>
-            <button onclick="deletedata()">Delete</button>
+            <button class="lo" onclick="logoutacc()">Logout account</button>
+            <button class="de" onclick="deletedata()">Delete</button>
     `
 
 }
@@ -38,7 +38,7 @@ function deletedata() {
 }
 
 function postpage(){
-    window.location.href=`../pages/addPost.html?id=${id}`
+    window.location.href=`../pages/add.html?id=${id}`
 }
 
 function logoutacc() {

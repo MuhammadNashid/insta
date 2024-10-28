@@ -1,0 +1,113 @@
+body{
+    background-color: rgb(212, 206, 206);
+}
+.main-class{
+    display: flex;
+    width: 90vw;
+    margin: auto;
+    /* background-color: aquamarine; */
+    margin-top: 50px;
+   
+}
+.main h1{
+    text-align: center;
+    text-decoration:2px underline;
+}
+.main{
+    width: 400px;
+    height: 300px;
+   border: 2px solid rgb(219, 211, 211);
+   margin: auto;
+   margin-left: 100px;
+   /* text-align: center; */
+   margin-top: 10px;
+    background-color: rgb(53, 51, 48);
+}
+.main img{
+    
+    height: 80px;
+    width: 100px;
+    border: none;
+    margin-left: 50px;
+
+}
+.main .img img{
+    border-radius: 50%;
+}
+.main div{
+    color: white;
+   margin-left: 60px;
+   margin-top: 20px;
+
+}
+.btn{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-left: 20px;
+}
+button{
+    margin-left: 30px;
+    margin-top: 40px;
+}
+.lo{
+    color: white;
+    background-color: blue;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+.de{
+    color: white;
+    background-color: rgb(114, 6, 6);
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+}
+.po{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(80, 9, 74);
+    margin-right: 200px;
+}
+
+
+/* .log-btn,.del-btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+}
+.log-btn{
+    background-color: orange;
+}
+.del-btn{
+    background-color: red;
+}
+.main-class-2{
+    width: 600px;
+
+}
+.main-class-2 h3{
+    text-align: center;
+}
+.add-post{
+    text-align: right;
+}
+.post-btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: rgb(44, 174, 44);
+    color: white;
+}
+.post-page{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+} */
