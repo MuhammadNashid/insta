@@ -2,9 +2,13 @@ const url = window.location.href;
 const urlParams = new URLSearchParams(url.split("?")[1]);
 const id=urlParams.get("id");
 console.log(id);
+const token=localStorage.getItem('token')
 
 async function getUserDetails() {
-    const res=await fetch(`http://localhost:3000/api/getUserDetails/${id}`)
+    const res=await fetch(`http://localhost:3000/api/getUserdetails/${id}`,{
+        headers: { authorization: `Bearer ${token}` },
+      }
+    )
     const data=await res.json();
     console.log(data);
     document.getElementById('main').innerHTML=`

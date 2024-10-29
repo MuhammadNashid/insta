@@ -19,45 +19,87 @@ export async function add(req,res) {
     
 }
 
+// export async function getUser(req, res) {
+//     console.log("=================");
+//     console.log(req.user)
+
+//     const usr=await userSchema.findOne({_id:req.user.UserID})
+//     console.log(usr)
+
+//     console.log("get User")
+//     res.status(200).send({user:usr.name,pic:usr.profile,id:usr._id}); 
+// }
 export async function getUser(req, res) {
-    console.log("=================");
-    console.log(req.user)
-
     const usr=await userSchema.findOne({_id:req.user.UserID})
-    console.log(usr)
-
-    console.log("get User")
-    res.status(200).send({user:usr.name,pic:usr.profile,id:usr._id}); 
+    // console.log(usr);
+    const data=await postSchema.find()
+    console.log(data);
+    
+    res.status(200).send({usr,data}); 
 }
+
+export async function addPost(req,res) {
+    const{...datas}=req.body
+    await postSchema.create({id:req.user.UserID,...datas}).then(()=>{
+        res.status(201).send({msg:"Successfull"})
+    }).catch((error)=>{
+        res.status(404).send({error:error})
+    })  
+}
+
+
+
+export async function showPost(req,res) {
+    // console.log(req.params.id);
+    const id=req.params.id
+    const post=await postSchema.findOne({_id:id})
+    // console.log(post);
+    res.status(200).send({post})
+}
+
+
+
+// export async function getUserDetails(req,res) {
+//     console.log(req.user.UserID);
+//     const data=await userSchema.findOne({_id:req.user.UserID})
+//     console.log(data);
+
+//     res.status(200).send(data)
+    
+    
+// }
 
 export async function getUserDetails(req,res) {
-    console.log(req.params);
-    const {id}=req.params;
-    const data=await userSchema.findOne({_id:id})
-    console.log(data);
-
-    res.status(200).send(data)
-    
-    
+    const usr=await userSchema.findOne({_id:req.user.UserID})
+    const post=await postSchema.find({id:req.user.UserID})
+    res.status(200).send({usr,post}); 
 }
 
+
+// export async function update(req,res) {
+//     console.log(req.params);
+//     console.log(req.body);
+//     const {...data}=req.body
+//     await postSchema.updateOne({_id:req.params.id},{$set:{...data}}).then(()=>{
+//         res.status(201).send({msg:"updated"})
+//     }).catch((error)=>{
+//         res.status(500).send({error:error})
+        
+//     }) 
+// }
 export async function update(req,res) {
-    console.log(req.params);
-    console.log(req.body);
+    // console.log(req.user.UserID);
+    // console.log(req.body);
     const {...data}=req.body
-    await postSchema.updateOne({_id:req.params.id},{$set:{...data}}).then(()=>{
+    await postSchema.updateOne({_id:req.params.id},{$set:{id:req.user.UserID,...data}}).then(()=>{
         res.status(201).send({msg:"updated"})
     }).catch((error)=>{
-        res.status(500).send({error:error})
-        
-    })
-    
-    
-    
+        res.status(500).send({error:error})  
+    })  
 }
 
 export async function deleteUser(req, res) {
-    console.log(req.params); 
+    // console.log(req.params); 
     const { id } = req.params;  
     const data = await userSchema.deleteOne({ _id: id })
         .then(() => {
@@ -113,9 +155,9 @@ export async function login(req,res) {
     res.status(200).send({token})
 }
 
-export async function home(req,res) {
-    console.log("end point")
-    console.log(req.user.UserID)
-    const user=userSchema.findOne({_id:req.user.UserID})
-    res.status(200).send({user:user.username})
-}
+// export async function home(req,res) {
+//     console.log("end point")
+//     console.log(req.user.UserID)
+//     const user=userSchema.findOne({_id:req.user.UserID})
+//     res.status(200).send({user:user.username})
+// }

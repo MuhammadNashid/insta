@@ -5,9 +5,9 @@ async function getUser() {
         headers: { authorization: `Bearer ${token}` },
       });
       const user = await res.json();
-      console.log(user);
-      console.log(user.user);
-      console.log(user.pic);
+      // console.log(user);
+      // console.log(user.user);
+      // console.log(user.pic);
   
       document.getElementById("nav-sign").style.display = "none";
       document.getElementById("nav-sec-2").innerHTML = `
@@ -18,14 +18,27 @@ async function getUser() {
               <div class="dropdown" id="dropdown">
                   <button onclick="myFunction()" class="dropbtn">▼</button>
                   <div id="myDropdown" class="dropdown-content">
-                    <a href="../pages/profile.html?id=${user.id}">Profile</a>
+                    <a href="../pages/profile.html">Profile</a>
                     <a onclick="logoutacc()">Logout</a>
                   </div>
               </div>
       `;
-    }
-    else{
-      alert("You are not logined")
+
+      let str=[]
+      console.log(user.data);
+      user.data.map((data)=>{
+        str += `
+          <a href="./pages/postPage.html?id=${data._id}">
+                  <div class="card">
+                      <div><img
+                              src="${data.pic[0]}"
+                              alt height="250" width="200"></div>
+                      <div>${data.caption} </div>
+                  </div>
+              </a>
+        `
+      })
+      document.getElementById('container').innerHTML=str
     }
   }
   getUser();
@@ -50,5 +63,5 @@ async function getUser() {
   function logoutacc() {
     localStorage.removeItem("token")
     alert("Logout Successfully")
-    getUser()
+    window.location.reload()
   }

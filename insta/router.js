@@ -5,14 +5,16 @@ import Auth from "./middleware/Auth.js";
 
 const router=Router();
 
-router.route('/add').post(rh.add)
+router.route('/adduser').post(rh.adduser)
 router.route('/getUser').get(Auth,rh.getUser)
-router.route('/getUserDetails/:id').get(rh.getUserDetails)
+router.route('/getUserDetails').get(Auth,rh.getUserDetails)
 router.route('/update/:id').put(rh.update)
-router.route('/deleteUser/:id').delete(rh.deleteUser)
+router.route('/deleteUser').delete(rh.deleteUser)
 router.route('/adduser').post(rh.adduser)
 router.route('/login').post(rh.login)
-// router.route('/home').get(Auth,rh.home)
+router.route('/addpost').post(Auth,rh.addPost)
+router.route('/showPost/:id').get(rh.showPost)
+
 
 
 export default router;

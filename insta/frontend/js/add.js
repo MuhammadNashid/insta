@@ -1,13 +1,10 @@
+const token = localStorage.getItem("token")
 document.getElementById('form').addEventListener('submit',async function (e) {
     e.preventDefault();
-
     caption=document.getElementById('caption').value
     description=document.getElementById('description').value
-    
-    
-    
-    console.log(caption,description,pic)
 
+    console.log(caption,description,pic)
     const res=await fetch('http://localhost:3000/api/add',{
         method:"POST",
         headers:{"content-Type":'application/json'},
@@ -24,17 +21,31 @@ document.getElementById('form').addEventListener('submit',async function (e) {
         alert(data.error)
     }
  })
-
-
- let pic
+let pic=[];
 
  async function picture() {
-    const file=document.getElementById("post").files[0]
+    const files=document.getElementById("post").files
+    pic=[];
+    const previewContainer = document.getElementById("pics");
+    previewContainer.innerHTML = "";
 
-      pic=await convertBase64(file)
-    console.log(pic);
-    document.getElementById('showprofile').src=pic
+    for (const file of files) {
+        const base64 = await convertBase64(file);
+        pic.push(base64);
+
+
+        const img = document.createElement("img");
+        img.src = base64;
+        img.style.height = "100px";
+        img.style.width = "100px";
+        img.style.margin = "5px";
+        previewContainer.appendChild(img);
+    }
 }
+
+    //   pic=await convertBase64(file)
+    // console.log(pic);
+    // document.getElementById('pics').src=pic}
 
 function convertBase64(file) {
     return new Promise((resolve,reject)=>{
@@ -43,7 +54,6 @@ function convertBase64(file) {
         fileReader.readAsDataURL(file)
         fileReader.onload=()=>{
             resolve(fileReader.result)
-
         }
         fileReader.onerror=(error)=>{
             reject(error)

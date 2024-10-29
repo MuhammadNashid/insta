@@ -8,13 +8,13 @@
 </head>
 <body>
    
-    <form action="" id="form">
+    <form action="/submit" method="post" id="form">
 <div class="main">
     <h1>Add Your Post</h1>
         <div>
             <input type="file" name="post" class="post" id="post" onchange="picture()"></div> <br>
-        <div>
-            <img src="" alt="" id="picture" height="70" width="70">
+        <div class="pics">
+            <img src="" alt="" id="pics" height="70" width="70">
         </div> <br>
         <div>
             <input type="text" name="caption" class="caption" id="caption" placeholder="caption"></div> <br>
@@ -22,7 +22,7 @@
             <textarea name="description" id="description" class="description" placeholder="description"></textarea></div> <br>
         <div>
             <button type="submit">Add</button></div>
-        </div>
+</div>
     </form>
 
 
