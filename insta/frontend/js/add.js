@@ -5,9 +5,9 @@ document.getElementById('form').addEventListener('submit',async function (e) {
     description=document.getElementById('description').value
 
     console.log(caption,description,pic)
-    const res=await fetch('http://localhost:3000/api/add',{
+    const res=await fetch('http://localhost:3000/api/addpost',{
         method:"POST",
-        headers:{"content-Type":'application/json'},
+        headers:{"Content-Type":'application/json', "authorization": `Bearer ${token}`},
         body:JSON.stringify({pic,caption,description})
     })
     console.log(res);

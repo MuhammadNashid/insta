@@ -9,8 +9,8 @@ async function showPost(){
     const data=await res.json()
     console.log(data.post);
 
-    document.getElementById("post-caption").textContent = `Caption: ${data.post.caption}`;
-    document.getElementById("post-description").textContent = `Description: ${data.post.description}`;
+    document.getElementById('post-caption').textContent = `Caption: ${data.post.caption}`;
+    document.getElementById('post-description').textContent = `Description: ${data.post.description}`;
     console.log(data.post.pic[0]);
     
     document.getElementById("img-preview").src=data.post.pic[0]
@@ -25,6 +25,10 @@ async function showPost(){
         img.addEventListener("mouseover", () => showPreview(imageSrc));
         imagesContainer.appendChild(img);
     });   
+    document.getElementById('div-btn').innerHTML=`
+        <button class="edit-btn" onclick="editpost()">Edit</button>
+        <button class="del-btn" onclick="delPost()">Delete</button>
+    `
 }
 showPost()
 
@@ -33,5 +37,22 @@ function showPreview(imageSrc) {
 }
 
 function editPost() {
-    window.location.href=`../pages/editPost.html?id=${id}`
+    window.location.href=`../pages/edit.html?id=${id}`
+}
+
+function delPost() {
+    fetch(`http://localhost:3000/api/deletePost/${id}`,{
+        method:"DELETE",
+        headers:{"Content-Type":"application/json"}
+    })
+    .then((res)=>{
+        console.log(res);
+        if(res.status == 201) {
+            alert("success");
+            window.location.href="../pages/profile.html"
+        }
+        else{
+            alert("error");
+        }
+    });
 }

@@ -1,21 +1,23 @@
-const url = window.location.href;
-const urlParams = new URLSearchParams(url.split("?")[1]);
-const id=urlParams.get("id");
-console.log(id);
+// const url = window.location.href;
+// const urlParams = new URLSearchParams(url.split("?")[1]);
+// const id=urlParams.get("id");
+// console.log(id);
+let id
 const token=localStorage.getItem('token')
 
 async function getUserDetails() {
-    const res=await fetch(`http://localhost:3000/api/getUserdetails/${id}`,{
+    const res=await fetch(`http://localhost:3000/api/getUserDetails/`,{
         headers: { authorization: `Bearer ${token}` },
       }
     )
-    const data=await res.json();
-    console.log(data);
+    const user=await res.json();
+    id=user.usr._id
+    // console.log(user);
     document.getElementById('main').innerHTML=`
-    <div><img src="${data.profile}" alt="" height="50" width="50"></div>
-            <div>Username: ${data.name}</div>
-            <div>Email: ${data.email}</div>
-            <div>Phone: ${data.phone}</div>
+    <div><img src="${user.usr.profile}" alt="" height="50" width="50"></div>
+            <div>Username: ${user.usr.name}</div>
+            <div>Email: ${user.usr.email}</div>
+            <div>Phone: ${user.usr.phone}</div>
             <button class="lo" onclick="logoutacc()">Logout account</button>
             <button class="de" onclick="deletedata()">Delete</button>
     `
@@ -41,9 +43,20 @@ function deletedata() {
     });
 }
 
-function postpage(){
-    window.location.href=`../pages/add.html?id=${id}`
-}
+// function postpage(){
+//     window.location.href=`../pages/add.html?id=${id}`
+// }
+
+function postpage(id){
+    console.log(id);
+    
+    window.location.href=`../pages/post.html?id=${id}`
+  }
+  
+  function addpost(){
+    window.location.href=`../pages/add.html`
+  }
+  
 
 function logoutacc() {
     localStorage.removeItem("token")
