@@ -21,6 +21,17 @@ async function getUserDetails() {
             <button class="lo" onclick="logoutacc()">Logout account</button>
             <button class="de" onclick="deletedata()">Delete</button>
     `
+    let str=[]
+    user.post.map(()=>{
+        str+=`
+        <a href="../pages/post.html?id=${data._id}">
+        <div><img src="${data.pic[0]}" alt="" height="50" width="50"></div></a> `
+    })
+    document.getElementById("postpage").innerHTML=str
+    let check=user.post
+    if(check.length==0){
+        document.getElementById("postpage").innerHTML=`<h4>No Post Uploaded</h4>`
+    }
 
 }
 getUserDetails()

@@ -29,7 +29,7 @@ export async function getUser(req, res) {
 }
 
 
-export async function addPost(req,res) {
+export async function addpost(req,res) {
     const{...datas}=req.body
     await postSchema.create({id:req.user.UserID,...datas}).then(()=>{
         res.status(201).send({msg:"Successfull"})

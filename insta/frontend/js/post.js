@@ -1,15 +1,14 @@
 
 const url = window.location.href;
 const urlParams = new URLSearchParams(url.split("?")[1]);
-const id=urlParams.get("id");
-console.log(id);
+
 
 async function showPost(){
     const res=await fetch(`http://localhost:3000/api/showPost/${id}`)
     const data=await res.json()
     console.log(data.post);
 
-    document.getElementById('post-caption').textContent = `Caption: ${data.post.caption}`;
+    document.getElementById("post-caption").textContent = `Caption: ${data.post.caption}`;
     document.getElementById('post-description').textContent = `Description: ${data.post.description}`;
     console.log(data.post.pic[0]);
     
