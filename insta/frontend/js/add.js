@@ -4,7 +4,7 @@ document.getElementById('form').addEventListener('submit',async function (e) {
     caption=document.getElementById('caption').value
     description=document.getElementById('description').value
 
-    console.log(caption,description,pic)
+    console.log(pic,caption,description)
     const res=await fetch('http://localhost:3000/api/addpost',{
         method:"POST",
         headers:{"Content-Type":'application/json', "authorization": `Bearer ${token}`},
@@ -21,12 +21,13 @@ document.getElementById('form').addEventListener('submit',async function (e) {
         alert(data.error)
     }
  })
-let pic=[];
+let pic = [];
 
- async function picture() {
-    const files=document.getElementById("post").files
-    pic=[];
-    const previewContainer = document.getElementById("pics");
+async function picture() {
+    const files = document.getElementById("post-picture").files;
+    pic = [];
+
+    const previewContainer = document.getElementById("image-preview");
     previewContainer.innerHTML = "";
 
     for (const file of files) {
@@ -43,20 +44,17 @@ let pic=[];
     }
 }
 
-    //   pic=await convertBase64(file)
-    // console.log(pic);
-    // document.getElementById('pics').src=pic}
-
 function convertBase64(file) {
-    return new Promise((resolve,reject)=>{
-        const fileReader=new FileReader();
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
 
-        fileReader.readAsDataURL(file)
-        fileReader.onload=()=>{
-            resolve(fileReader.result)
-        }
-        fileReader.onerror=(error)=>{
-            reject(error)
-        }
-    })
+        fileReader.onload = () => {
+            resolve(fileReader.result);
+        };
+
+        fileReader.onerror = (error) => {
+            reject(error);
+        };
+    });
 }

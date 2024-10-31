@@ -7,7 +7,7 @@ document.getElementById('form').addEventListener('submit',async function (e) {
     
     console.log(email,pass)
 
-            const res=await fetch('http://localhost:3000/api/login',{
+    const res=await fetch('http://localhost:3000/api/login',{
         method:"POST",
         headers:{"Content-Type":'application/json'},
         body:JSON.stringify({email,pass})

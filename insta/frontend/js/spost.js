@@ -1,4 +1,3 @@
-
 const url = window.location.href;
 const urlParams = new URLSearchParams(url.split("?")[1]);
 const id=urlParams.get("id");
@@ -25,10 +24,10 @@ async function showPost(){
         img.addEventListener("mouseover", () => showPreview(imageSrc));
         imagesContainer.appendChild(img);
     });   
-    document.getElementById('div-btn').innerHTML=`
-        <button class="edit-btn" onclick="editPost()">Edit</button>
-        <button class="del-btn" onclick="delPost()">Delete</button>
-    `
+    // document.getElementById('div-btn').innerHTML=`
+    //     <button class="edit-btn" onclick="editPost()">Edit</button>
+    //     <button class="del-btn" onclick="delPost()">Delete</button>
+    // `
 }
 showPost()
 

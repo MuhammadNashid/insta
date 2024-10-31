@@ -21,7 +21,7 @@ document.getElementById('form').addEventListener('submit',async function (e) {
     const data=await res.json()
     if(res.status==201){
         alert(data.msg)
-        window.location.href="./login.html"
+        window.location.href="./sign.html"
     }
     else{
         alert(data.error)

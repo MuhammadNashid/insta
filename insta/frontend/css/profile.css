@@ -1,93 +1,83 @@
-body{
-    background-color: rgb(212, 206, 206);
-}
 .main-class{
     display: flex;
     width: 90vw;
     margin: auto;
     /* background-color: aquamarine; */
     margin-top: 50px;
-   
 }
-.main h1{
-    text-align: center;
-    text-decoration:2px underline;
-}
-.main{
+.main-class-1{
     width: 400px;
-    height: 300px;
-   border: 2px solid rgb(219, 211, 211);
-   margin: auto;
-   margin-left: 100px;
-   /* text-align: center; */
-   margin-top: 10px;
-    background-color: rgb(53, 51, 48);
+    height: 600px;
+    background-color:rgb(108, 110, 112);
+    /* padding: 20px; */
+    border-radius: 10px;
 }
-.main img{
-    
-    height: 80px;
-    width: 100px;
-    border: none;
-    margin-left: 50px;
-
+h1{
+    color: aliceblue;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
 }
-.main .img img{
+.main-class-1 div{
+    margin-top: 20px;
+    color: aliceblue;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.main-class-1 .img{
+    text-align: center;
+}
+.main-class-1 .img img{
     border-radius: 50%;
 }
-.main div{
-    color: white;
-   margin-left: 60px;
-   margin-top: 20px;
-
+.main-1-div{
+    padding-left: 80px;
 }
 .btn{
     display: flex;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
-    margin-left: 20px;
 }
-button{
-    margin-left: 30px;
-    margin-top: 40px;
-
-}
-.lo{
-    color: white;
-    background-color: blue;
-    height: 30px;
-    border: none;
-    border-radius: 5px;
-}
-.de{
-    color: white;
-    background-color: rgb(114, 6, 6);
-    height: 30px;
-    width: 100px;
-    border: none;
-    border-radius: 5px;
-}
-.po{
-    width: 100px;
+.main-class-1 button{
+    width: 90px;
     height: 40px;
     border: none;
-    border-radius: 5px;
+    border-radius:5px;
+    margin-left: 20px;
+
+}
+.log-btn{
     color: white;
-    background-color: rgb(80, 9, 74);
-    margin-right: 300px;
+    background-color: blue;
+    font-size: 15px;
 }
-/* .m2
-    background-color: rgb(227, 235, 232);
-    width: 50%;
-    height: 100px;
-    margin-right: 200px;
-} */
-.ggh{
-    background-color: black;
-    width: 2px;
-    height: 700px;
-    margin-right: 300px;
+.del-btn{
+    color: aliceblue;
+    background-color: brown;
+    font-size: 15px;
 }
-.main2{
-    margin-right: 10px;
-    margin-left: 10px;
+
+
+.main-class-2{
+    width: 600px;
+    /* background-color: bisque; */
+}
+.main-class-2 h3{
+    text-align: center;
+}
+.add-post{
+    text-align: right;
+}
+.post-btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: rgb(79, 5, 102);
+    color: white;
+}
+.post-page{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }

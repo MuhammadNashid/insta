@@ -1,5 +1,5 @@
 *{
-    background-color: #666262;
+    background-color: #ebae91;
 }
 #post-container {
     display: flex;
@@ -8,12 +8,6 @@
     margin-top: 100px;
     font-family: Arial, sans-serif;
     gap: 50px;
-    margin-right: 1000px;
-    border: 1px solid black;
-    margin-left: 100px;
-    width: 900px;
-    background-color: #666262;
-    box-shadow:0 0 2px 2px rgb(151, 150, 150);
 }
 .post-container-1{
     display: flex;
@@ -33,9 +27,7 @@
     /* background-color: rgb(245, 223, 196); */
     padding: 80px 40px 40px 40px;
 }
-.post-container-2 div{
-    color: white;
-}
+
 .post-image {
     height: 100px;
     width: 100px;
@@ -80,13 +72,9 @@
     border: none;
 }
 .del-btn{
-    background-color: rgb(94, 3, 3);
+    background-color: rgb(80, 2, 2);
     color: white;
     padding: 10px 20px;
     border-radius: 7px;
     border: none;
-}
-#div-btn{
-    display: flex;
-    gap: 10px;
 }

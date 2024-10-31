@@ -6,8 +6,7 @@ async function getUser() {
       headers: { authorization: `Bearer ${token}` },
     });
     const user= await res.json();
-   
-
+    
     document.getElementById("nav-sign").style.display = "none"
     document.getElementById("nav-sec-2").innerHTML = `
         <div class="nav-dropdown" id="uname">${user.usr.name}</div>
@@ -23,14 +22,12 @@ async function getUser() {
             </div>
     `;
     let str=[]
-    // console.log(movie.data)
     user.data.map((data)=>{
       str += `
-        <a href="./pages/Post.html?id=${data._id}">
+        <a href="../pages/spost?id=${data._id}">
                 <div class="card">
                     <div><img
-                            src="${data.pic[0]}"
-                            alt height="250" width="200"></div>
+                            src="${data.pic[0]}"alt height="250" width="200"></div>
                     <div>${data.caption} </div>
                 </div>
             </a>
