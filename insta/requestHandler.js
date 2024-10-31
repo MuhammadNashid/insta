@@ -5,19 +5,6 @@ import bcrypt from 'bcrypt'
 import pkg from 'jsonwebtoken'
 const {sign} =pkg
 
-// export async function add(req,res) {
-
-//     console.log(req.body);
-
-//     const{...datas}=req.body
-
-//     await postSchema.create({...datas}).then(()=>{
-//         res.status(201).send({msg:"Successfull"})
-//     }).catch((error)=>{
-//         res.status(404).send({error:error})
-//     })  
-    
-// }
 
 
 export async function getUser(req, res) {
@@ -42,7 +29,7 @@ export async function addpost(req,res) {
 
 export async function showPost(req,res) {
     const id=req.params.id
-    const post=await postSchema.findOne({_id:id})
+    const post=await postSchema.findOne({_id:req.user.UserID})
     res.status(200).send({post})
 }
 
