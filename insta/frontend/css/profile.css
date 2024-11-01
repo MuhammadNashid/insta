@@ -48,12 +48,12 @@ h1{
 }
 .log-btn{
     color: white;
-    background-color: blue;
+    background-color: darkred;
     font-size: 15px;
 }
 .del-btn{
     color: aliceblue;
-    background-color: brown;
+    background-color: lightcoral;
     font-size: 15px;
 }
 
@@ -70,6 +70,7 @@ h1{
 }
 .post-btn{
     padding: 10px 20px;
+    height: 50px;
     border-radius: 10px;
     font-size: 16px;
     border: none;
@@ -80,4 +81,17 @@ h1{
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+.h-btn{
+    width: 130px;
+    height: 50px;
+    background-color: seagreen;
+    border: 0;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 17px;
+}
+.h-btn a{
+    text-decoration: 0;
+    color: white;
 }

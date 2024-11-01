@@ -10,7 +10,7 @@ nav{
   display: flex;
   flex-direction: row-reverse;
   padding: 10px 40px;
-  background-color: rgb(172, 163, 163);
+  background-color: grey;
 }
 .nav-sec-2{
   display: flex;
@@ -24,7 +24,7 @@ nav{
   gap: 20px;
 }
 .nav-sign button{
-  background-color: rgb(185, 171, 171);
+  background-color: seagreen;
   border: none;
   color: rgb(8, 7, 7);
   /* padding: 5px 15px; */

@@ -25,7 +25,7 @@ async function showPost(){
         imagesContainer.appendChild(img);
     });   
     document.getElementById('div-btn').innerHTML=`
-        <button class="edit-btn" onclick="editPost()">Edit</button>
+        
         <button class="del-btn" onclick="delPost()">Delete</button>
     `
 }

@@ -11,8 +11,8 @@ async function getUser() {
     document.getElementById("nav-sec-2").innerHTML = `
         <div class="nav-dropdown" id="uname">${user.usr.name}</div>
             <div id="profilep" class="profilep">
-                <img src="${user.usr.profile}" alt="" id="profile-pic" class="profile-pic" width="40" height="40">
-            </div>
+            <a href="./pages/profile.html"><img src="${user.usr.profile}" alt="" id="profile-pic" class="profile-pic" width="40" height="40">
+                </a></div>
             <div class="dropdown" id="dropdown">
                 <button onclick="myFunction()" class="dropbtn">▼</button>
                 <div id="myDropdown" class="dropdown-content">
