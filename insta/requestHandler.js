@@ -1,9 +1,20 @@
 import postSchema from './model/addm.js'
 import userSchema from './model/user.js'
 import bcrypt from 'bcrypt'
-
+import nodemailer from "nodemailer"
 import pkg from 'jsonwebtoken'
 const {sign} =pkg
+
+
+const transporter = nodemailer.createTransport({
+    host: "sandbox.smtp.mailtrap.io",
+    port: 2525,
+    secure: false, // true for port 465, false for other ports
+    auth: {
+      user: "5416047b114f7b",
+      pass: "e9979b5f11e89d",
+    },
+  });
 
 
 export async function login(req,res) {
@@ -105,4 +116,22 @@ export async function deletePost(req, res) {
         .catch((error) => {
             res.status(500).send({ error });
         });
+}
+
+export async function genarateOTP(req,res){
+    const {email}=req.body
+    const otp=Math.floor(Math.random()*10000)
+    console.log(otp);
+    
+
+    const info = await transporter.sendMail({
+        from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
+        to: email, // list of receivers
+        subject: "otp", // Subject line
+        text: "verify", // plain text body
+        html: `<b> otp is ${otp}</b>`, // html body
+      });
+    
+      console.log("Message sent: %s", info.messageId);
+      res.status(200).send({msg:"otp send"})
 }
