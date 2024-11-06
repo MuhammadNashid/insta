@@ -7,18 +7,13 @@
 </head>
 <body>
     
-    <div class="forgot-password-container">
+    <div>
+        <form action="" id="form">
         <h2>Forgot Your Password?</h2>
-        <p>Enter your email address to reset your password.</p>
-        
-        <form id="forgotPasswordForm" onsubmit="handleSubmit(event)">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-            
-            <button type="submit">Reset Password</button>
-        </form>
-        
-        <p id="statusMessage"></p>
+        <p>Enter your email address, and we'll send you a link to reset your password.</p>
+        <input type="email" id="email" placeholder="Enter your email">
+        <button type="submit">Enter</button>
+    </form>
     </div>
 
     <script src="../js/fpass.js"></script>

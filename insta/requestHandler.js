@@ -4,12 +4,13 @@ import bcrypt from 'bcrypt'
 import nodemailer from "nodemailer"
 import pkg from 'jsonwebtoken'
 const {sign} =pkg
-
+let otp
 
 const transporter = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
-    secure: false, // true for port 465, false for other ports
+    service:"gmail",
+    // host: "sandbox.smtp.mailtrap.io",
+    // port: 2525,
+    // secure: false, // true for port 465, false for other ports
     auth: {
       user: "5416047b114f7b",
       pass: "e9979b5f11e89d",
@@ -118,20 +119,43 @@ export async function deletePost(req, res) {
         });
 }
 
-export async function genarateOTP(req,res){
-    const {email}=req.body
-    const otp=Math.floor(Math.random()*10000)
+export async function generateOTP(req,res) {
+    const {email}=req.body   
+     const check = await userSchema.findOne({email})
+     if(check){
+   otp=Math.floor(Math.random()*10000)
     console.log(otp);
-    
-
     const info = await transporter.sendMail({
-        from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
-        to: email, // list of receivers
-        subject: "otp", // Subject line
-        text: "verify", // plain text body
-        html: `<b> otp is ${otp}</b>`, // html body
-      });
-    
-      console.log("Message sent: %s", info.messageId);
-      res.status(200).send({msg:"otp send"})
+    from: '"Maddison Foo Koch 👻" <maddilson53@ethereal.email>', // sender address
+    to: email, // list of receivers
+    subject: "OTP", // Subject line
+    text: "verify", // plain text body
+    html: `<b>otp is ${otp}</b>`, // html body
+});
+      console.log("Message sent: %s", info.messageId)
+      res.status(200).send({msg:"OTP sent"})
+    }
+    else{
+        res.status(404).send({msg:"This Email has not created user"})
+    }  
 }
+
+export async function checkOTP(req,res){
+    const {getotp}=req.body
+    console.log(getotp);
+    if(!otp==getotp)
+        return res.status(404).send({msg:"OTP is incorrect"})
+        res. status(200).send({msg:"OTP is correct"})
+}
+// export async function checkOTP(req,res) {
+//     const {getotp}=req.body
+//     console.log(getotp);
+//     if(otp == getotp){
+//         res.status(200).send({msg:"OTP is correct"})
+//     }
+//     else{
+//         res.status(404).send({msg:"OTP is incorrect"})
+//     }
+    
+    
+// }
