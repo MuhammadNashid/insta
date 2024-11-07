@@ -1,0 +1,38 @@
+.main{
+    width: 370px;
+    height: 220px;
+    border: 1px solid black;
+    margin-left: 200px;
+    margin-top: 50px;
+    background-color: lightseagreen;
+}
+h1{
+    margin-left: 100px;
+}
+label{
+   margin-left: 100px;
+    color: green;
+    font-weight: bold;
+}
+.input{
+    margin-left: 100px;
+    margin-top: 15px;
+}
+input{
+    width: 40px;
+    height: 30px;
+    outline: 0;
+    border: 0;
+    box-shadow: 0 0 1px 1px green;
+    /* margin-left: 100px;
+    margin-top: 30px; */
+}
+button{
+    margin-left: 130px;
+    margin-top: 10px;
+    background-color: rgb(90, 90, 233);
+    border: none;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+}
