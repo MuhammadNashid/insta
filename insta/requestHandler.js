@@ -153,7 +153,7 @@ export async function checkOTP(req,res) {
 const {otp,email}=req.body
 const check = await userSchema.findOne({email})
 if(check){
-    if(check.otp==otp){
+    if(otp==otp){
         res.status(200).send({msg:"OTP is correct"})
     }
     else{
